@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/GameOverScreen.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/gameover_panel.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/ui/btn_restart.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/ui/btn_play.png" id="4"]
+
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="DimBackground" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.08, 0.12, 0.65)
+
+[node name="Panel" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BackgroundPanel" type="TextureRect" parent="Panel"]
+custom_minimum_size = Vector2(820, 900)
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+alignment = 1
+theme_override_constants/separation = 40
+
+[node name="GameOverLabel" type="Label" parent="Panel/VBoxContainer"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 76
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Game Over"
+
+[node name="ScoreLabel" type="Label" parent="Panel/VBoxContainer"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 52
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Skor: 0"
+
+[node name="HighScoreLabel" type="Label" parent="Panel/VBoxContainer"]
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Skor Tertinggi: 0"
+
+[node name="ButtonRow" type="HBoxContainer" parent="Panel/VBoxContainer"]
+alignment = 1
+theme_override_constants/separation = 40
+
+[node name="RestartButton" type="TextureButton" parent="Panel/VBoxContainer/ButtonRow"]
+custom_minimum_size = Vector2(200, 170)
+texture_normal = ExtResource("3")
+stretch_mode = 5
+
+[node name="MenuButton" type="TextureButton" parent="Panel/VBoxContainer/ButtonRow"]
+custom_minimum_size = Vector2(200, 170)
+texture_normal = ExtResource("4")
+stretch_mode = 5
